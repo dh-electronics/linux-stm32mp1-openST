@@ -2054,6 +2054,7 @@ static int mmci_probe(struct amba_device *dev,
 				fmax : min(host->mclk, fmax);
 
 
+	/* printk( KERN_ALERT "**** %s   card: %s   f_max: %i\n", __func__, mmc_hostname( mmc ), mmc->f_max ); */
 	dev_dbg(mmc_dev(mmc), "clocking block at %u Hz\n", mmc->f_max);
 
 	host->rst = devm_reset_control_get_optional_exclusive(&dev->dev, NULL);

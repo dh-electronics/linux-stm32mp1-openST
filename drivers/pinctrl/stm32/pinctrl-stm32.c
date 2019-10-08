@@ -842,6 +842,8 @@ static int stm32_pconf_set_speed(struct stm32_gpio_bank *bank,
 	u32 val;
 	int err = 0;
 
+	/* printk( KERN_ALERT "**** %s   %s_%i   speed: %i\n", __func__, bank->gpio_chip.label, offset, speed ); */
+
 	clk_enable(bank->clk);
 	spin_lock_irqsave(&bank->lock, flags);
 

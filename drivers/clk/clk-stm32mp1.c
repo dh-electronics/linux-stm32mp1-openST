@@ -2529,7 +2529,11 @@ static const struct clock_config stm32mp1_clock_cfg[] = {
 		  _NO_DIV),
 
 	/* MCO clocks */
+#if 0
+	COMPOSITE(CK_MCO1, "ck_mco1", mco1_src, CLK_IS_CRITICAL | CLK_OPS_PARENT_ENABLE |
+#else
 	COMPOSITE(CK_MCO1, "ck_mco1", mco1_src, CLK_OPS_PARENT_ENABLE |
+#endif
 		  CLK_SET_RATE_NO_REPARENT,
 		  _GATE(RCC_MCO1CFGR, 12, 0),
 		  _MUX(RCC_MCO1CFGR, 0, 3, 0),

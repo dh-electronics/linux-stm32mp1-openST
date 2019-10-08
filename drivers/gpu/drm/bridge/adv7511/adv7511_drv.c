@@ -649,8 +649,9 @@ adv7511_detect(struct adv7511 *adv7511, struct drm_connector *connector)
 	 * there is a pending HPD interrupt and the cable is connected there was
 	 * at least one transition from disconnected to connected and the chip
 	 * has to be reinitialized. */
-	if (status == connector_status_connected && hpd && adv7511->powered) {
+	if (status == connector_status_connected && hpd ) {
 		regcache_mark_dirty(adv7511->regmap);
+		if (!adv7511->powered)
 		adv7511_power_on(adv7511);
 		adv7511_get_modes(adv7511, connector);
 		if (adv7511->status == connector_status_connected)

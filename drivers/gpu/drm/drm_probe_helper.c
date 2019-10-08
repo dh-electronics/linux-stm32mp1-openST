@@ -93,6 +93,11 @@ drm_mode_validate_pipeline(struct drm_display_mode *mode,
 	struct drm_encoder *encoder;
 	int i;
 
+#if 0
+	printk( KERN_ALERT "**** drm_mode_validate_pipeline - clock: %i   hdisplay: %i   htotal: %i   vdisplay: %i   vtotal: %i\n",
+			mode->clock, mode->hdisplay, mode->htotal, mode->vdisplay, mode->vtotal );
+#endif
+
 	/* Step 1: Validate against connector */
 	ret = drm_connector_mode_valid(connector, mode);
 	if (ret != MODE_OK)

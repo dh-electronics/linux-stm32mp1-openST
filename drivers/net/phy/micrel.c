@@ -493,6 +493,7 @@ static int ksz9031_of_load_skew_values(struct phy_device *phydev,
 					<< (field_sz * i));
 		}
 
+	/* printk( KERN_ALERT "**** extended_write( %i, 0x%04x )\n", (int )reg, (int )newval ); */
 	return ksz9031_extended_write(phydev, OP_DATA, 2, reg, newval);
 }
 

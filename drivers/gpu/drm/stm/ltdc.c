@@ -495,6 +495,9 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
 
 	result = clk_round_rate(ldev->pixel_clk, target);
 
+#if 0
+	printk( KERN_ALERT "**** target rate = %d => available rate = %d\n", target, result);
+#endif
 	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
 
 	/* Filter modes according to the max frequency supported by the pads */
